@@ -55,7 +55,7 @@ st.image(image, caption='Correlation Matrix', use_column_width=True)
 
 # Load your data into the DataFrame
 data = pd.read_csv(__application_path_prefix + "corrmx.csv", encoding="utf-8")
-
+data.drop(columns=["NeighbourhoodCode"])
 # Calculate the correlation matrix
 correlation_matrix = data.corr()
 
