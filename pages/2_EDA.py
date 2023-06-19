@@ -3,6 +3,7 @@ import pandas as pd
 import altair as alt
 import time
 from PIL import Image
+import numpy as np
 
 st.title("EDA")
 
@@ -59,5 +60,15 @@ st.altair_chart(chart, use_container_width=True)
 # Navigation buttons
 col1, col2, col3 = st.columns(3)
 
-image = Image.open('pages/Corrmx.png')
-st.image(image, caption='Correlation Matrix', use_column_width=True)
+# Convert the pivot table to a numpy array
+heatmap_data = pd.read_csv('pages/Corrmx.csv')
+
+# Create a heatmap using Altair
+heatmap = alt.Chart(heatmap_data).mark_rect().encode(
+    x='Category:N',
+    y='Value:O',
+    color='Value:Q'
+)
+
+# Display the heatmap using Streamlit
+st.altair_chart(heatmap, use_container_width=True)
