@@ -5,7 +5,7 @@ import time
 
 st.title("EDA")
 
-__application_path_prefix = "E:/GitHub/2022-23d-1fcmgt-reg-ai-01-group-team8/FinalDeliverable/ml_data/"
+__application_path_prefix = "pages/"
 
 
 placeholder = st.empty()
