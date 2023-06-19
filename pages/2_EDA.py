@@ -60,14 +60,10 @@ st.altair_chart(chart, use_container_width=True)
 # Navigation buttons
 col1, col2, col3 = st.columns(3)
 
-# Convert the pivot table to a numpy array
 heatmap_data = pd.read_csv('pages/corrmx.csv')
 
-# Convert the pivot table to a NumPy array
-heatmap_array = heatmap_data.values
-
 # Create a heatmap using Altair
-heatmap = alt.Chart(heatmap_array).mark_rect().encode(
+heatmap = alt.Chart(heatmap_data).mark_rect().encode(
     x='Category:N',
     y='Value:O',
     color='Value:Q'
