@@ -57,13 +57,3 @@ st.altair_chart(chart, use_container_width=True)
 
 # Navigation buttons
 col1, col2, col3 = st.columns(3)
-
-# Button to go to the previous page
-if col1.button("Previous Page"):
-    # Code to switch to the previous page goes here
-    pass
-
-# Button to go to the next page
-if col3.button("Next Page"):
-    # Code to switch to the next page goes here
-    pass
