@@ -61,3 +61,25 @@ col1, col2, col3 = st.columns(3)
 
 image = Image.open('pages/Corrmx.png')
 st.image(image, caption='Correlation Matrix', use_column_width=True)
+
+# Load your data into the DataFrame
+data = pd.DataFrame("pages/corrmx.csv")  # Replace ... with your data loading code
+
+# Calculate the correlation matrix
+correlation_matrix = data.corr()
+
+# Get the column names from the DataFrame
+column_names = data.columns.tolist()
+
+# Create an Altair heatmap chart
+chart = alt.Chart(correlation_matrix.unstack().reset_index(), title='Correlation Matrix').mark_rect().encode(
+    x=alt.X('level_0:O', axis=alt.Axis(labels=column_names, labelAngle=45)),  # Use column names as labels and rotate x-axis labels by 45 degrees
+    y=alt.Y('level_1:O', axis=alt.Axis(labels=column_names, labelAngle=0)),  # Use column names as labels and keep y-axis labels horizontal
+    color='correlation:Q'
+).properties(
+    width=500,
+    height=500
+)
+
+# Use Streamlit to display the chart
+st.write(chart)
