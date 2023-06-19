@@ -61,7 +61,7 @@ st.altair_chart(chart, use_container_width=True)
 col1, col2, col3 = st.columns(3)
 
 # Convert the pivot table to a numpy array
-heatmap_data = pd.read_csv('pages/Corrmx.csv')
+heatmap_data = pd.read_csv('pages/corrmx.csv')
 
 # Convert the pivot table to a NumPy array
 heatmap_array = heatmap_data.values
