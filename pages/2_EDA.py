@@ -58,3 +58,5 @@ st.altair_chart(chart, use_container_width=True)
 # Navigation buttons
 col1, col2, col3 = st.columns(3)
 
+image = Image.open('pages/Corrmx.png')
+st.image(image, caption='Your Image Caption', use_column_width=True)
