@@ -57,3 +57,4 @@ st.altair_chart(chart, use_container_width=True)
 
 # Navigation buttons
 col1, col2, col3 = st.columns(3)
+
