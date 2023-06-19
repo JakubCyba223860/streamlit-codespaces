@@ -63,6 +63,9 @@ col1, col2, col3 = st.columns(3)
 # Convert the pivot table to a numpy array
 heatmap_data = pd.read_csv('pages/Corrmx.csv')
 
+# Convert the pivot table to a NumPy array
+heatmap_array = heatmap_data.values
+
 # Create a heatmap using Altair
 heatmap = alt.Chart(heatmap_data).mark_rect().encode(
     x='Category:N',
