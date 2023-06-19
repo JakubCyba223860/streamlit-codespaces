@@ -67,7 +67,7 @@ heatmap_data = pd.read_csv('pages/corrmx.csv')
 heatmap_array = heatmap_data.values
 
 # Create a heatmap using Altair
-heatmap = alt.Chart(heatmap_data).mark_rect().encode(
+heatmap = alt.Chart(heatmap_array).mark_rect().encode(
     x='Category:N',
     y='Value:O',
     color='Value:Q'
