@@ -21,6 +21,7 @@ scikit-learn = "^1.2.2"
 xgboost = "^1.7.5"
 seaborn = "^0.12.2"
 pyproject-toml = "^0.0.10"
+altair = "^5.0.1"
 
 [build-system]
 requires = ["poetry-core"]
