@@ -63,7 +63,7 @@ image = Image.open('pages/Corrmx.png')
 st.image(image, caption='Correlation Matrix', use_column_width=True)
 
 # Load your data into the DataFrame
-data = pd.DataFrame("pages/corrmx.csv")  # Replace ... with your data loading code
+data = pd.read_csv("pages/corrmx.csv", encoding="utf-8")
 
 # Calculate the correlation matrix
 correlation_matrix = data.corr()
