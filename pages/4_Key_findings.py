@@ -5,7 +5,6 @@ import time
 
 
 st.title("Key Findings")
-st.write("This is the content for the key findings page.")
 
 st.subheader("Summary")
 

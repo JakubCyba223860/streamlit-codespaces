@@ -2,7 +2,6 @@ import streamlit as st
 
 
 st.title("Sources")
-st.write("This is the content for the sources page.")
 
 data_sources = [
     "Breda. (n.d.). Breda. (n.d.). [Link](https://breda.incijfers.nl/Dashboard)",
