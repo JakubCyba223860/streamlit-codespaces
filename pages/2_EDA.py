@@ -33,6 +33,9 @@ crime_type_filter = st.selectbox("Filter by Crime Type", crime_types)
 # Group data by neighbourhood code and sum the selected crime type
 grouped_data = filtered_data.groupby("NeighbourhoodCode")[crime_type_filter].sum().reset_index()
 
+# Convert the 'NeighbourhoodCode' column to string type
+grouped_data["NeighbourhoodCode"] = grouped_data["NeighbourhoodCode"].astype(str)
+
 # Sort the grouped data in descending order based on the selected crime type
 grouped_data = grouped_data.sort_values(by=crime_type_filter, ascending=False)
 
@@ -52,26 +55,3 @@ col1, col2, col3 = st.columns(3)
 
 image = Image.open('pages/Corrmx.png')
 st.image(image, caption='Correlation Matrix', use_column_width=True)
-
-# Load your data into the DataFrame
-data = pd.read_csv(__application_path_prefix + "corrmx.csv", encoding="utf-8")
-data.drop(columns=["NeighbourhoodCode"])
-# Calculate the correlation matrix
-correlation_matrix = data.corr()
-
-# Get the column names from the DataFrame
-column_names = data.columns.tolist()
-
-# Create an Altair heatmap chart
-chart = alt.Chart(correlation_matrix.unstack().reset_index(), title='Correlation Matrix').mark_rect().encode(
-    x=alt.X('level_0:O', axis=alt.Axis(labels=column_names, labelAngle=45)),
-    y=alt.Y('level_1:O', axis=alt.Axis(labels=column_names, labelAngle=0)),
-    color='correlation:Q'
-).properties(
-    width=500,
-    height=500
-)
-
-# Use Streamlit to display the chart
-st.subheader("Correlation Matrix Heatmap")
-st.altair_chart(chart)
