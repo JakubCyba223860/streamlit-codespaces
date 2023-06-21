@@ -1,5 +1,6 @@
 import streamlit as st
 import webbrowser
+from PIL import Image
 
 st.title("Ethics")
 st.subheader("Ethical checklist")
