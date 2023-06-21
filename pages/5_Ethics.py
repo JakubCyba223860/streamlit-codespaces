@@ -90,8 +90,8 @@ image = Image.open('pages/MicrosoftTeams-image (1).png')
 st.image(image, caption='AI Canvas', use_column_width=True)
 
 if st.button("Report Link"):
-    webbrowser.open(report_link)
-    
+    st.markdown(f"[Report Link]({report_link})")
+
 st.title("Feedback Form")
 
 feedback = st.text_area("Feedback", height=150)
