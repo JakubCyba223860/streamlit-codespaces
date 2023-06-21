@@ -83,7 +83,10 @@ st.subheader("Accountability")
 st.write("Did you establish mechanisms that facilitate the AI system’s auditability? ✅")
 st.write("Did you ensure that the AI system can be audited by independent third parties? ✅")
 
-report_link = "https://github.com/BredaUniversityADSAI/2022-23d-1fcmgt-reg-ai-01-group-team8/blob/46d056917d62cebe8168ac0f82807cb139cb1452/DeliverablePrep/Ethical_report.pdf"
+report_link = "https://github.com/JakubCyba223860/streamlit-codespaces/blob/main/Ethical_report.pdf"
+
+image = Image.open('pages/MicrosoftTeams-image (1).png')
+st.image(image, caption='AI Canvas', use_column_width=True)
 
 if st.button("Report Link"):
     webbrowser.open(report_link)
