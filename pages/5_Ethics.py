@@ -89,8 +89,12 @@ report_link = "https://github.com/JakubCyba223860/streamlit-codespaces/blob/main
 image = Image.open('pages/MicrosoftTeams-image (1).png')
 st.image(image, caption='AI Canvas', use_column_width=True)
 
-if st.button("Report Link"):
-    st.markdown(f"[Report Link]({report_link})")
+report_link = "https://github.com/JakubCyba223860/streamlit-codespaces/blob/main/Ethical_report.pdf"
+
+
+st.markdown(
+    f'<a href="{report_link}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Open Report</a>',
+    unsafe_allow_html=True)
 
 st.title("Feedback Form")
 
