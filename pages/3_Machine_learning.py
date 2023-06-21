@@ -14,13 +14,13 @@ st.title("Prediction using our model")
 model = joblib.load("model_kornelia_dashboard.sav")
 
 # Define the input variables
-variable1 = st.number_input("Population density (km2)", value=0, step=1)
-variable2 = st.number_input("Slow Response Time Penalty", value=0.0)
-variable3_input = st.text_input("Trade and Catering %", value="0.0")
-variable3 = float(variable3_input.rstrip('%')) if '%' in variable3_input else 0.0
+variable1 = st.number_input("Population density (km2)", value=3109, step=1)
+variable2 = st.number_input("Slow Response Time Penalty", value=1.0)
+variable3_input = st.text_input("Trade and Catering %", value="0.141")
+variable3 = float(variable3_input.rstrip('%')) if '%' in variable3_input else 0.141
 variable4 = st.number_input("Response Time Score", value=0.0)
-variable5_input = st.text_input("Percent uninhabited (%)", value=".0")
-variable5 = float(variable5_input.rstrip('%')) if '%' in variable5_input else 0
+variable5_input = st.text_input("Percent uninhabited (%)", value="1.0")
+variable5 = float(variable5_input.rstrip('%')) if '%' in variable5_input else 2
 
 
 
