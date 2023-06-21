@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import joblib
-
+import time
 st.title("Why Gradient Boost Regressor?")
 st.write("We arrived at the decision to utilize the Gradient Boosting Regressor as our chosen model after an extensive evaluation process. Our team members created multiple machine learning models and conducted thorough comparisons and analyses of the results. After carefully examining graphs and plots, the Gradient Boosting Regressor algorithm consistently showcased remarkable performance, demonstrating its capability to handle complex datasets and deliver exceptional outcomes.")
 
@@ -25,11 +25,15 @@ variable5 = float(variable5_input.rstrip('%')) if '%' in variable5_input else 2
 
 
 # Create an input data array
-input_data = np.array([[variable1, variable2, variable3, variable4, variable5]])
+with st.spinner('Predicting values...'):
+    input_data = np.array([[variable1, variable2, variable3, variable4, variable5]])
+    time.sleep(0.3)
+    # Predict the value using the input variables
+    prediction = model.predict(input_data)
+    time.sleep(0.3)
+    # Display the prediction
+    st.write("Burglaries1k:")
+    st.info(prediction)
+    st.success('Done!')
 
-# Predict the value using the input variables
-prediction = model.predict(input_data)
 
-# Display the prediction
-st.write("Burglaries1k:")
-st.info(prediction)
