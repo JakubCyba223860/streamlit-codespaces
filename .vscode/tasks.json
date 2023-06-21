@@ -1,0 +1,24 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "open_dashboard",
+			"type": "shell",
+			"command": "cmd conda activate base",
+			"dependsOrder": "sequence",
+			"dependsOn": ["open_dashboard.openshell", "open_dashboard.opendashboard"]
+		},
+		{
+			"label": "open_dashboard.openshell",
+			"type": "shell",
+			"hide": true,
+			"command": "poetry shell",
+		},
+		{
+			"label": "open_dashboard.opendashboard",
+			"type": "shell",
+			"hide": true,
+			"command": "streamlit run main.py",
+		}
+	]
+}

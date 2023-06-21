@@ -1,0 +1,33 @@
+name: Unit Tests
+
+on: [workflow_call]
+
+jobs:
+  unittests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git identity
+        run: |
+          git config user.email "225087@buas.nl"
+          git config user.name "markrakosi225087"
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.13
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Set up project dependencies
+        run: |
+          poetry install
+
+      - name: Run unit tests
+        run: |
+          poetry run python misc_scripts/unit_test.py

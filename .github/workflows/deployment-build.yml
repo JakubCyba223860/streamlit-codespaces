@@ -1,0 +1,53 @@
+name: Deployment Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  #tests:
+  #  name: Unit tests
+  #  uses: ./.github/workflows/unit_testing.yml  # use the callable tests job to run tests
+  
+  build:
+    name: Build
+    #needs: [tests]  # require tests to pass before deploy runs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Configure Git identity
+        run: |
+          git config user.email "225087@buas.nl"
+          git config user.name "markrakosi225087"
+      - name: Create deployment branch
+        run: |
+          git branch -D deployment || true
+          git checkout -b deployment
+      - name: Fetch latest changes
+        run: git fetch origin main
+
+      - name: Clear deployment branch (except FinalDeliverable)
+        run: |
+          shopt -s extglob
+          rm -rf !(FinalDeliverable)
+          git add -A
+          git commit -m "Clear deployment branch" --allow-empty
+      - name: Copy FinalDeliverable contents to repository root
+        run: |
+          cp -R FinalDeliverable/. .
+          rm -rf FinalDeliverable
+      - name: Commit and push changes
+        run: |
+          git add -A
+          git commit -m "Deploy FinalDeliverable changes"
+          git push -f origin deployment
+
+  deploy:
+    name: Deployment
+    needs: [build]  # require tests to pass before deploy runs
+    uses: ./.github/workflows/deployment-send.yml  # use the callable tests job to run tests

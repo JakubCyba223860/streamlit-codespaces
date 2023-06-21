@@ -1,0 +1,61 @@
+name: Push to Remote
+
+on:
+  workflow_call:
+
+jobs:
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure Git identity
+        run: |
+          git config user.email "225087@buas.nl"
+          git config user.name "markrakosi225087"
+          rm -rf .git
+          
+          git clone "https://github.com/markrakosi225087/adsai-1d-deployment.git" repo
+          
+          cd repo
+          ls -la
+
+          git clone --single-branch --branch "main" "${{ secrets.API_TOKEN_GITHUB }}@github.com:markrakosi225087/adsai-1d-deployment.git" "clonedir"
+          ls -la "clonedir"
+          
+          mkdir -p "clonedir/."
+          cp -rvf README.MD "clonedir/."
+
+          cd "clonedir"
+
+          git add .
+          git status
+
+          git push origin --set-upstream "main"
+          
+
+    #  - name: Test push
+    #    uses: nkoppel/push-files-to-another-repository@master
+    #    env:
+    #      API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+    #    with:
+    #      source-files: 'README.md'
+    #      destination-username: 'markrakosi225087'
+    #      destination-repository: 'markrakosi225087/adsai-1d-deployment'
+    #      commit-email: '225087@buas.nl'
+    #      destination-branch: 'main'
+
+    #- name: Checkout
+    #  uses: actions/checkout@v2
+#
+    #- name: Pushes test file
+    #  uses: dmnemec/copy_file_to_another_repo_action@main
+    #  env:
+    #    API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+    #  with:
+    #    source_file: 'README.md'
+    #    destination_repo: 'markrakosi225087/adsai-1d-deployment'
+    #    user_email: '225087@buas.nl'
+    #    user_name: 'markrakosi225087'
+    #    commit_message: 'Deployment request'
