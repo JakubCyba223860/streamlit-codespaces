@@ -20,7 +20,7 @@ variable3_input = st.text_input("Trade and Catering %", value="0.141")
 variable3 = float(variable3_input.rstrip('%')) if '%' in variable3_input else 0.141
 variable4 = st.number_input("Response Time Score", value=0.0)
 variable5_input = st.text_input("Percent uninhabited (%)", value="1.0")
-variable5 = float(variable5_input.rstrip('%')) if '%' in variable5_input else 2
+variable5 = float(variable5_input.rstrip('%')) if '%' in variable5_input else 1
 
 
 
