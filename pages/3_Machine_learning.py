@@ -37,6 +37,6 @@ with st.spinner('Predicting values...'):
     prediction = model.predict(input_data)
     time.sleep(0.3)
     # Display the prediction
-    st.write("Burglaries1k:")
+    st.write("Burglaries per 1000 inhabitants per neighbourhood per month:")
     st.info(prediction)
     st.success('Done!')
