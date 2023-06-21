@@ -110,3 +110,4 @@ if st.button("Submit"):
             file.write(f"Feedback: {feedback}\n\n")
         # Show confirmation message
         st.success("Thank you for your feedback!")
+st.markdown('You can report a vulnerability by messaging our team by clicking [here](mailto:2250872+le6kae4brwmfz7ujl9vg@boards.trello.com).')
