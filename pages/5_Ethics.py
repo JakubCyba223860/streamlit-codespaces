@@ -99,7 +99,7 @@ st.markdown(
 st.title("Feedback Form")
 
 feedback = st.text_area("Feedback", height=150)
-send_feedback = f"[here](mailto:2250872+le6kae4brwmfz7ujl9vg@boards.trello.com?subject=Complaint&body={feedback})"
+send_feedback = f"mailto:2250872+le6kae4brwmfz7ujl9vg@boards.trello.com?subject=Complaint&body={feedback}"
 
 if st.button("Submit"):
     # Validate form field
