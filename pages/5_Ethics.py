@@ -111,9 +111,12 @@ if st.button("Submit"):
             file.write(f"Feedback: {feedback}\n\n")
         # Show confirmation message
         st.success("Thank you for your feedback!")
+
         st.write("Sorry the button doesn't work because streamlet sucks. Click on this link to fix it")
+        st.markdown('You can report a vulnerability by messaging our team by clicking [here](mailto:2250872+le6kae4brwmfz7ujl9vg@boards.trello.com).')
         st.markdown(
         f'<a href="{send_feedback}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Send Feedback</a>',
         unsafe_allow_html=True)
         ##
         ##mailto:someone@example.com
+
